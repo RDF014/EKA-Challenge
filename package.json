@@ -1,0 +1,11 @@
+{
+  "name": "eka-challenge-2",
+  "version": "1.0.0",
+  "description": "EKA Technical Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raphael Feliciano",
+  "license": "ISC"
+}
