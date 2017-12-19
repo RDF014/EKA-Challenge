@@ -2,28 +2,28 @@
 exports.up = function(knex, Promise) {
     return Promise.all([
 
-      knex.schema.createTableIfNotExists('Users', (table) => {
-        table.increments('Id');
-        table.string('Username');
-        table.string('Password');
-        table.string('Email');
+      knex.schema.createTableIfNotExists('users', (table) => {
+        table.increments('id');
+        table.string('username');
+        table.string('password');
+        table.string('email');
       }),
 
-      knex.schema.createTableIfNotExists('UserInfo', (table) => {
-        table.increments('Id');
-        table.integer('User_Id').references('Id').inTable('Users');
-        table.string('FirstName');
-        table.string('LastName');
-        table.string('PhoneNumber');
+      knex.schema.createTableIfNotExists('user_info', (table) => {
+        table.increments('id');
+        table.integer('user_id').references('id').inTable('users');
+        table.string('first_name');
+        table.string('last_name');
+        table.string('phone_number');
       }),
 
-      knex.schema.createTableIfNotExists('UserAddress', (table) => {
-        table.increments('Id');
-        table.integer('User_Id').references('Id').inTable('Users');
-        table.string('Address');
-        table.string('City');
-        table.string('State');
-        table.string('Zip');
+      knex.schema.createTableIfNotExists('user_address', (table) => {
+        table.increments('id');
+        table.integer('user_id').references('id').inTable('users');
+        table.string('address');
+        table.string('city');
+        table.string('state');
+        table.string('zip');
       })
 
     ])
@@ -31,8 +31,8 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.schema.dropTableIfExists('Users'),
-    knex.schema.dropTableIfExists('UserInfo'),
-    knex.schema.dropTableIfExists('UserAddress')
+    knex.schema.dropTableIfExists('user_info'),
+    knex.schema.dropTableIfExists('user_address'),
+    knex.schema.dropTableIfExists('users')
   ])
 };

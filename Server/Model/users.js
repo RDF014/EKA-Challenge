@@ -1,11 +1,18 @@
 const bookshelf = require('../db/config.js');
+
 const Users = bookshelf.Model.extend({
-  tableName: 'Users',
+  tableName: 'users',
+  idAttribute: 'id'
 });
 
-exports.addUser = async function ({username, password, email}) {
-  const newUser = await new U
-}
+const addUser = ({ username, password, email }) => {
+  return new Users({
+    username,
+    password,
+    email
+  })
+  .save()
+  .then(saved => saved.id);
+};
 
-
-module.exports = Users;
+module.exports = addUser;

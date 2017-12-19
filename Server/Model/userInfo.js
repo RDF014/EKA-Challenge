@@ -1,5 +1,19 @@
 const bookshelf = require('../db/config.js');
+
 const UserInfo = bookshelf.Model.extend({
-  tableName: 'UserInfo',
+  tableName: 'user_info',
+  idAttribute: 'id'
 });
-module.exports = UserInfo;
+
+const addUserInfo = ({ user_id, first_name, last_name, phone_number }) => {
+  return new UserInfo({
+    user_id,
+    first_name,
+    last_name,
+    phone_number
+  })
+  .save()
+  .then(saved => saved.id);
+};
+
+module.exports = addUserInfo;
