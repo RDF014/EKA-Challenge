@@ -14,7 +14,8 @@ const addUserAddress = ({ user_id, address, city, state, zip }) => {
     zip
   })
   .save()
-  .then(saved => saved);
+  .then(saved => saved)
+  .catch(err => err);
 };
 
 module.exports = addUserAddress;

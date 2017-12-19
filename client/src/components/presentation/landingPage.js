@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LandingPage = (props) => {
   return (
     <div>
-      <h1>LANDING PAGE</h1>
+      <h1>Welcome</h1>
       <button type='button'>
         <Link to='/user'>Sign Up</Link>
       </button>

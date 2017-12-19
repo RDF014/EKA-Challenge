@@ -35,7 +35,10 @@ export function asyncRequest (type, data) {
       { 
         ...data
       })
-      .then(res => dispatch( addData(type, { ...res.data }) ) )
+      .then(res => {
+        console.log(res);
+        dispatch( addData(type, { ...res.data }) ) 
+      })
       .catch(err => dispatch( invalidRequest(type) ) );
   }
 }

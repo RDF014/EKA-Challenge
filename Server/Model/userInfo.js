@@ -13,7 +13,8 @@ const addUserInfo = ({ user_id, first_name, last_name, phone_number }) => {
     phone_number
   })
   .save()
-  .then(saved => saved);
+  .then(saved => saved)
+  .catch(err => err);
 };
 
 module.exports = addUserInfo;

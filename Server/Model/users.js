@@ -12,7 +12,8 @@ const addUser = ({ username, password, email }) => {
     email
   })
   .save()
-  .then(saved => saved);
+  .then(saved => saved)
+  .catch(err => err);
 };
 
 module.exports = addUser;

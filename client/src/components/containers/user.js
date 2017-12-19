@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/actions';
 
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 
 import Form1 from '../presentation/Form1';
 
@@ -19,6 +19,16 @@ class User extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    const {
+      users: { data: { id } }
+    } = this.props;
+    if (id !== null) {
+      this.props.history.push('/user_information');
+      // return <Redirect to='/user_information'/>
+    }
   }
 
   onChange(e, key) {
@@ -43,9 +53,11 @@ class User extends Component {
       users: { data: { id } }
     } = this.props;
 
-    if (id !== null) {
-      return <Redirect to='/user_information'/>
-    }
+    // if (id !== null) {
+    //   console.log(this.props.history);
+    //   this.props.history.push('/user_information');
+    //   // return <Redirect to='/user_information'/>
+    // }
     return (
       <div>
         <Form1 onChange={this.onChange} onSubmit={this.onSubmit} {...this.state}/>

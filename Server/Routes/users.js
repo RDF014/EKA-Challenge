@@ -1,7 +1,7 @@
 const express = require('express');
-const addUser = require('../Model/users');
-const addUserInfo = require('../Model/userInfo');
-const addUserAddress = require('../Model/userAddress');
+const addUser = require('../model/users');
+const addUserInfo = require('../model/userInfo');
+const addUserAddress = require('../model/userAddress');
 
 const router = express.Router();
 
