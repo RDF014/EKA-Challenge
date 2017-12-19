@@ -12,6 +12,9 @@ import store from './store.js';
 
 import LandingPage from './components/presentation/landingPage';
 import User from './components/containers/user';
+import UserInformation from './components/containers/UserInformation';
+import UserAddress from './components/containers/UserAddress';
+
 
 export default class App extends Component {
   render() {
@@ -22,6 +25,8 @@ export default class App extends Component {
             <Switch>
               <Route exact path='/' component={LandingPage} />
               <Route path='/user' component={User} />
+              <Route path='/user_information' component={UserInformation} />
+              <Route path='/user_address' component={UserAddress} />
             </Switch>
           </Router>
         </Provider>

@@ -6,15 +6,16 @@ import * as actionCreators from '../../actions/actions';
 
 import { Redirect } from 'react-router-dom';
 
-import Form1 from '../presentation/Form1';
+import Form2 from '../presentation/Form2';
 
-class User extends Component {
+class UserInformation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
-      email: ''
+      user_id: this.props.user_id,
+      first_name: '',
+      last_name: '',
+      phone_number: ''
     }
 
     this.onChange = this.onChange.bind(this);
@@ -29,26 +30,27 @@ class User extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.asyncRequest('USER', this.state);
+    this.props.asyncRequest('USER_INFO', this.state);
   }
 
   render() {
     const {
-      username,
-      password,
-      email,
+      first_name,
+      last_name,
+      phone_number,
     } = this.state;
 
     const {
-      users: { data: { id } }
+      id
     } = this.props;
 
     if (id !== null) {
-      return <Redirect to='/user_information'/>
+      return <Redirect to='/user_address'/>
     }
+
     return (
       <div>
-        <Form1 onChange={this.onChange} onSubmit={this.onSubmit} {...this.state}/>
+        <Form2 onChange={this.onChange} onSubmit={this.onSubmit} {...this.state}/>
       </div>
     );
   }
@@ -56,7 +58,8 @@ class User extends Component {
 
 function mapStateToProps(state) {
   return {
-    users: state.users,
+    user_id: state.users.data.id,
+    id: state.userInfo.data.id,
   }
 }
 
@@ -64,4 +67,4 @@ function mapDispachToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispachToProps)(User);;
+export default connect(mapStateToProps, mapDispachToProps)(UserInformation);;

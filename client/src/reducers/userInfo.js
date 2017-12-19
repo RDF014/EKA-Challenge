@@ -1,7 +1,8 @@
 const initialState = {
-  firstName: '',
-  lastName: '',
-  phoneNumber: ''
+  id: null,
+  first_name: '',
+  last_name: '',
+  phone_number: ''
 };
 
 const initalPost = {

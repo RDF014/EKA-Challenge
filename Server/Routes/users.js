@@ -17,7 +17,7 @@ router.route('/information')
   .post((req, res) => {
     const { user_id, first_name, last_name, phone_number } = req.body;
     addUserInfo({ user_id, first_name, last_name, phone_number })
-    .then(id => res.json({ id }) )
+    .then(data => res.json(data) )
     .catch(err => res.send(err) );
   });
 
@@ -25,7 +25,7 @@ router.route('/addresses')
   .post((req, res) => {
     const { user_id, address, city, state, zip } = req.body;
     addUserAddress({ user_id, address, city, state, zip })
-    .then(id => res.json({ id }) )
+    .then(data => res.json(data) )
     .catch(err => res.send(err) );
   });
 
