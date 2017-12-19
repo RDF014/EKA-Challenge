@@ -15,7 +15,7 @@ const store = createStore(
   applyMiddleware(
     thunkMiddleware,
     // Uncomment out 'createLogger()' to enable logging of Redux actions 
-    createLogger()
+    // createLogger()
   )
 );
 export default store;

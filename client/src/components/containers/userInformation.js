@@ -22,6 +22,15 @@ class UserInformation extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    const {
+      id
+    } = this.props;
+    if (id !== null) {
+      this.props.history.push('/user_address');
+    }
+  }
+
   onChange(e, key) {
     const newValue = e.target.value;
     const newState = {[key]: newValue};
@@ -39,14 +48,6 @@ class UserInformation extends Component {
       last_name,
       phone_number,
     } = this.state;
-
-    const {
-      id
-    } = this.props;
-
-    if (id !== null) {
-      return <Redirect to='/user_address'/>
-    }
 
     return (
       <div>

@@ -23,6 +23,15 @@ class UserAddress extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+    componentDidUpdate(prevProps) {
+      const {
+        id
+      } = this.props;
+      if (id !== null) {
+        this.props.history.push('/');
+      }
+    }
+
   onChange(e, key) {
     const newValue = e.target.value;
     const newState = {[key]: newValue};
@@ -41,14 +50,6 @@ class UserAddress extends Component {
       city,
       zip,
     } = this.state;
-
-    const {
-      id
-    } = this.props;
-    
-    if (id !== null) {
-      return <Redirect to='/'/>
-    }
 
     return (
       <div>

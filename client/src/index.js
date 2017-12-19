@@ -4,11 +4,10 @@ import { render } from 'react-dom';
 import { 
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store.js';
+import store from './store';
 
 import LandingPage from './components/presentation/landingPage';
 import User from './components/containers/user';

@@ -27,7 +27,6 @@ class User extends Component {
     } = this.props;
     if (id !== null) {
       this.props.history.push('/user_information');
-      // return <Redirect to='/user_information'/>
     }
   }
 
@@ -49,15 +48,6 @@ class User extends Component {
       email,
     } = this.state;
 
-    const {
-      users: { data: { id } }
-    } = this.props;
-
-    // if (id !== null) {
-    //   console.log(this.props.history);
-    //   this.props.history.push('/user_information');
-    //   // return <Redirect to='/user_information'/>
-    // }
     return (
       <div>
         <Form1 onChange={this.onChange} onSubmit={this.onSubmit} {...this.state}/>

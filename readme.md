@@ -4,6 +4,16 @@
 ## INTRODUCTION
 For this technical challenge, we would like you to provide an interface for a user to input information. This workflow is commonly referred to as an onboarding process, and involves the user inputting their information into a series of forms.
 
+## HOW TO RUN
+1. Open `test.env` file in the root directory and follow the instructions
+2. Run `npm run create`
+  * What this will do is create the Eka database so we can store the user's information
+  * It is expects that there is a postgres database on the localhost
+3. Run `npm start`
+  * This will run webpack and the server
+  * The terminal will log which port the server is listening to
+4. Access the app at `localhost:{port}`, where port is the number logged from the server
+
 ## TECHNOLOGIES
 This challenge implies building a single page fullstack application. Here's a list of the technologies that we expect you to utilize:
 
