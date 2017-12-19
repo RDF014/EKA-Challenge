@@ -12,7 +12,7 @@ const addUser = ({ username, password, email }) => {
     email
   })
   .save()
-  .then(saved => saved.id);
+  .then(saved => saved);
 };
 
 module.exports = addUser;

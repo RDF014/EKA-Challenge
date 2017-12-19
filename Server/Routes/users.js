@@ -5,15 +5,15 @@ const addUserAddress = require('../Model/userAddress');
 
 const router = express.Router();
 
-router.route('/form1')
+router.route('/')
   .post((req, res) => {
     const { username, password, email } = req.body;
     addUser({ username, password, email })
-    .then(id => res.json({ id }) )
+    .then(data => res.json(data) )
     .catch(err => res.send(err) );
   });
 
-router.route('/form2')
+router.route('/information')
   .post((req, res) => {
     const { user_id, first_name, last_name, phone_number } = req.body;
     addUserInfo({ user_id, first_name, last_name, phone_number })
@@ -21,7 +21,7 @@ router.route('/form2')
     .catch(err => res.send(err) );
   });
 
-router.route('/form3')
+router.route('/addresses')
   .post((req, res) => {
     const { user_id, address, city, state, zip } = req.body;
     addUserAddress({ user_id, address, city, state, zip })
